@@ -1,0 +1,33 @@
+--- dwm.org.c	2024-02-29 05:04:25.600773163 +0100
++++ dwm.c	2024-02-29 05:06:07.568211127 +0100
+@@ -1494,17 +1494,19 @@
+ void
+ sendmon(Client *c, Monitor *m)
+ {
+-	if (c->mon == m)
+-		return;
+-	unfocus(c, 1);
+-	detach(c);
+-	detachstack(c);
+-	c->mon = m;
+-	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+-	attach(c);
+-	attachstack(c);
+-	focus(NULL);
+-	arrange(NULL);
++    if (c->mon == m)
++        return;
++    unfocus(c, 1);
++    detach(c);
++    detachstack(c);
++    arrange(c->mon);
++    c->mon = m;
++    c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
++    attach(c);
++    attachstack(c);
++    arrange(m);
++    focus(c);
++    restack(m);
+ }
+ 
+ void

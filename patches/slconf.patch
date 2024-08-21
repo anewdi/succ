@@ -9,14 +9,13 @@
  
  /* maximum output string length */
  #define MAXLEN 2048
-@@ -65,5 +65,11 @@
+@@ -65,5 +65,10 @@
   */
  static const struct arg args[] = {
  	/* function format          argument */
 -	{ datetime, "%s",           "%F %T" },
-+    { run_command, " Vol %s | ",          "amixer sget Master | tail -1 | awk '{print $5}'| sed 's/\\[\\(.*\\)\\]/\\1/'" },
++    { run_command, " Vol %s | ",          "wpactl get-volume @DEFAULT_AUDIO_SINK@ | grep -Eo "[1-9]{1,3}},
 +    { wifi_perc, " WiFi %s% | ",          "wlan0" },
-+    { run_command, " GPU %s° | ",        "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits"}, 
 +    { cpu_perc, " CPU %s%% | ",          NULL },
 +    { ram_free, " RAM %s | ",            NULL },
 +    { uptime, "Uptime %s | ",              NULL },

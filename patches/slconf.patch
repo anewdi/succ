@@ -1,0 +1,24 @@
+--- a/config.def.h	2024-08-21 19:55:22.287535570 +0200
++++ b/config.def.h	2024-08-21 19:55:19.046502179 +0200
+@@ -4,7 +4,7 @@
+ const unsigned int interval = 1000;
+ 
+ /* text to show if no value can be retrieved */
+-static const char unknown_str[] = "n/a";
++static const char unknown_str[] = "yeeta";
+ 
+ /* maximum output string length */
+ #define MAXLEN 2048
+@@ -65,5 +65,11 @@
+  */
+ static const struct arg args[] = {
+ 	/* function format          argument */
+-	{ datetime, "%s",           "%F %T" },
++    { run_command, " Vol %s | ",          "amixer sget Master | tail -1 | awk '{print $5}'| sed 's/\\[\\(.*\\)\\]/\\1/'" },
++    { wifi_perc, " WiFi %s% | ",          "wlan0" },
++    { run_command, " GPU %s° | ",        "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits"}, 
++    { cpu_perc, " CPU %s%% | ",          NULL },
++    { ram_free, " RAM %s | ",            NULL },
++    { uptime, "Uptime %s | ",              NULL },
++	{ datetime, "%s ",           "%A %H:%M" },
+ };

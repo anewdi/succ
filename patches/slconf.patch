@@ -14,10 +14,10 @@
  static const struct arg args[] = {
  	/* function format          argument */
 -	{ datetime, "%s",           "%F %T" },
-+    { run_command, " Vol %s | ",          "wpactl get-volume @DEFAULT_AUDIO_SINK@ | grep -Eo '[1-9]{1,3}'"},
 +    { wifi_perc, " WiFi %s% | ",          "wlan0" },
++    { run_command, " Vol %s | ",          "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -Eo '[1-9]{1,3}'"},
 +    { cpu_perc, " CPU %s% | ",          NULL },
-+    { disk_free, " SPACE %sGB | ",          "/" },
++    { disk_free, " /:%sGB | ",          "/" },
 +    { ram_free, " RAM %s | ",            NULL },
 +    { battery_perc, " Bat %s% | ",          "BAT0" },
 +    { uptime, "Uptime %s | ",              NULL },

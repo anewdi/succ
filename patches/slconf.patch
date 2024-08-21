@@ -14,7 +14,7 @@
  static const struct arg args[] = {
  	/* function format          argument */
 -	{ datetime, "%s",           "%F %T" },
-+    { run_command, " %s | ",          "ls /proc/sys/net/ipv4/conf | grep wg"},
++    { run_command, " test %s | ",          "ls /proc/sys/net/ipv4/conf | grep wg"},
 +    { wifi_perc, " WiFi %s% | ",          "wlan0" },
 +    { run_command, " Vol %s% | ",          "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -Eo '[1-9]{1,3}'"},
 +    { cpu_perc, " CPU %s% | ",          NULL },

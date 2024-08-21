@@ -1,6 +1,6 @@
 --- a/config.def.h	2024-08-21 19:55:22.259535281 +0200
 +++ b/config.def.h	2024-08-21 20:18:06.246185301 +0200
-@@ -3,32 +3,29 @@
+@@ -3,32 +3,28 @@
  /* appearance */
  static const unsigned int borderpx  = 1;        /* border pixel of windows */
  static const unsigned int snap      = 32;       /* snap pixel */
